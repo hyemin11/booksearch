@@ -11,16 +11,16 @@
 <body>
     <div class="sm container-sm">
         <h2>Sign in</h2>
-        <form>
+        <form th:action="@{/search}" th:object="${signForm}" th:method="post">
             <div class="mb-3">
                 <label class="form-label">ID</label>
-                <input type="text" class="form-control">
+                <input type="text" th:field="*{id}" class="form-control">
             </div>
             <div class="mb-3">
                 <label class="form-label">PW</label>
-                <input type="password" class="form-control">
+                <input type="password" th:field="*{password}" class="form-control">
             </div>
-            <button type="button" class="btn btn-secondary">sign up</button>
+            <button type="button" class="btn btn-secondary" th:onclick="|location.href='@{/signup}'|">sign up</button>
             <button type="submit" class="btn btn-primary">sign in</button>
         </form>
     </div>
